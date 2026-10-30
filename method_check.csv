@@ -1,0 +1,13 @@
+method,business_year,age_21,age_64,ratio_64_to_21
+first listed quarter,2014,283,819,2.891
+first listed quarter,2015,305,897,2.945
+first listed quarter,2016,326,940,2.879
+average of quarters (used),2014,280,825,2.942
+average of quarters (used),2015,303,901,2.971
+average of quarters (used),2016,324,946,2.922
+lowest quarter,2014,274,805,2.943
+lowest quarter,2015,297,882,2.971
+lowest quarter,2016,317,925,2.922
+highest quarter,2014,287,844,2.942
+highest quarter,2015,310,920,2.97
+highest quarter,2016,331,968,2.922

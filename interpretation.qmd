@@ -1,0 +1,69 @@
+---
+title: "How Health Insurance Premiums Vary by Age"
+subtitle: "ACA Marketplace, 2014-2016"
+author: "Shane Ghim"
+date: 10/29/2026
+format:
+  html:
+    embed-resources: true
+---
+
+**Question**
+
+How do health insurance premiums on the ACA marketplace vary by age, and how did they change from 2014 to 2016?
+
+**Data**
+
+I used the Health Insurance Marketplace data set from Kaggle. The rate file lists the monthly premium for every plan, organized by rating area, age, and tobacco status. The plan file gives each plan's metal level (Bronze, Silver, Gold, or Platinum), which determines how the insurer and insured split medical costs, and plan type, which determines how you access the medical network. I then joined the two files on plan, state, and year.
+
+When looking at the data set, I kept single-year ages from 21 to 64, the "No Preference" tobacco category, and the four standard metal levels, which left 792,704 premium records across the three years. I then removed missing, zero, and implausible premiums (above \$5,000 a month).
+
+The rate file lists a separate premium for each quarter of the year, so plans can have up to four rates for the same age. I averaged them into one yearly premium per plan, rating area, and age. When using the lowest, highest, or first listed quarter instead, the average premium at each age changed by around 2%, and the age 64 to age 21 ratio stayed between 2.88 and 2.97, so this choice does not change any result.
+
+Since I chose the \$5,000 cutoff myself, I had to test it. In 2016, I tried cutoffs from \$2,000 onwards, and the standard plans kept exactly the same rows each time, showing the choice had no effect on the results.
+
+**Method**
+
+For each age I averaged the monthly premium across plans and divided it by the average at age 21, so a ratio of 2.0 means that that age pays twice what a 21-year-old would pay. I did this for the entirety of 2016, by metal level, and for each year. Here, every plan counts equally, since the data has no enrollment numbers.
+
+Since averages can also change when the plans offered change, I repeated the yearly comparison using only plans that were offered in all three years.
+
+**Results**
+
+[Premiums by age]{.underline}
+
+![](output/age_curve_2016.png)
+
+Premiums are nearly flat through the mid-20s and rise only slowly through the 30s, reaching a little over 1.1 times the age-21 premium at age 30, and around 1.25 times at age 40. After age 40, premiums climb steeply, around 1.75 times at age 50, over 2.6 times at age 60, and 2.9 times at age 64.
+
+The dashed line is the ACA's 3:1 limit, which says insurers can't charge a 64-year-old more than three times what they charge a 21-year-old. Consequently, the average ends just under that line.
+
+[By metal level]{.underline}
+
+![](output/age_curve_by_tier.png)
+
+![](output/premium_dollars_by_tier.png)
+
+The four metal levels follow nearly the same curve, which makes sense since the age rule applies to every plan. Platinum rises slightly more slowly at the oldest ages, at around 2.8 times the age 21 premium by age 64, compared to around 2.9 for the other three. The price levels differ the most: Platinum plans cost the most at every age and Bronze the least, with Gold and Silver in between. We also see that the dollar gaps between them get wider as age rises.
+
+[Year to year]{.underline}
+
+![](output/age_curve_by_year.png)
+
+![](output/premium_dollars_by_year.png)
+
+The shape of the curve stays nearly the same in all three years. The age 64 to age 21 ratio was 2.94 in 2014, 2.97 in 2015, and 2.92 in 2016. Average premiums rose every year at every age. A 21-year-old's average went from \$280 in 2014 to \$303 in 2015 and \$324 in 2016, while a 64-year-old's from \$825 to \$901 to \$946, resulting in a roughly 15% higher premium over two years at both ends.
+
+[Same plans only]{.underline}
+
+![](output/premium_dollars_same_plans.png)
+
+The averages cover whichever plans were offered each year, and tracked insurers who entered and left the market. There were around 1,060 plans in 2014 compared to around 1,550 in each of the next two years. To see whether the same plans got more expensive, I looked only at the 331 plans offered in all three years. I saw their average premium went from \$449 in 2014 to \$510 in 2016, which was around 13.6% higher when compared to around 15% across all plans. So most of the increase came from higher prices on plans that stayed in the market, while only a small part was from changes in which plans were offered. Since these 331 plans are about a third of the plans offered in 2014, we have to consider the fact that they may not be typical.
+
+**Conclusions**
+
+Premiums change little with age until the 30s, then rise steeply, and by age 64 they sit just under the ACA's 3:1 limit. The pattern holds across metal levels and years, which fits a rule that applies to every plan. Average premiums rose each year, by around 15% from 2014 to 2016, and the same 331 plans rose by around 13.6%. I concluded that most of the increase was from higher pricing, not a change in which plans were offered.
+
+**Limitations**
+
+Every plan counts equally since there are no enrollment numbers, so a plan nobody bought counts as much as the most popular one. Premiums are regulated, so the age pattern reflects the rules as well as the underlying risk. My analysis covers single-year ages from 21 to 64, one tobacco category, and standard plans (no dental or catastrophic), and our public file does not include every state. Matching plans across years relies on plan IDs staying the same, which does not account for jumps in plans or swapping carriers. The premiums are before subsidies, and 2014 to 2016 were the first years of the marketplace, so the results may not describe today.
