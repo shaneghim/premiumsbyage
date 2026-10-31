@@ -2,7 +2,7 @@
 
 An R project that looks at how ACA marketplace premiums change with age, and how they changed from 2014 to 2016, using the Health Insurance Marketplace data set from Kaggle.
 
-**Report:** https://shaneghim.github.io/premiumsbyageproj/ (source: `interpretation.qmd`)
+**Report:** https://shaneghim.github.io/premiumsbyage/ (source: `interpretation.qmd`)
 
 ## What I did
 - Joined the rate and plan files, and kept single-year ages 21 to 64, the "No Preference" tobacco category, and Bronze, Silver, Gold, and Platinum plans
