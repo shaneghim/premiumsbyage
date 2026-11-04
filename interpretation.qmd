@@ -30,15 +30,11 @@ Since averages can also change when the plans offered change, I repeated the yea
 
 **Results**
 
-[Premiums by age]{.underline}
-
 ![](output/age_curve_2016.png)
 
 Premiums are nearly flat through the mid-20s and rise only slowly through the 30s, reaching a little over 1.1 times the age-21 premium at age 30, and around 1.25 times at age 40. After age 40, premiums climb steeply, around 1.75 times at age 50, over 2.6 times at age 60, and 2.9 times at age 64.
 
 The dashed line is the ACA's 3:1 limit, which says insurers can't charge a 64-year-old more than three times what they charge a 21-year-old. Consequently, the average ends just under that line.
-
-[By metal level]{.underline}
 
 ![](output/age_curve_by_tier.png)
 
@@ -46,15 +42,11 @@ The dashed line is the ACA's 3:1 limit, which says insurers can't charge a 64-ye
 
 The four metal levels follow nearly the same curve, which makes sense since the age rule applies to every plan. Platinum rises slightly more slowly at the oldest ages, at around 2.8 times the age 21 premium by age 64, compared to around 2.9 for the other three. The price levels differ the most: Platinum plans cost the most at every age and Bronze the least, with Gold and Silver in between. We also see that the dollar gaps between them get wider as age rises.
 
-[Year to year]{.underline}
-
 ![](output/age_curve_by_year.png)
 
 ![](output/premium_dollars_by_year.png)
 
 The shape of the curve stays nearly the same in all three years. The age 64 to age 21 ratio was 2.94 in 2014, 2.97 in 2015, and 2.92 in 2016. Average premiums rose every year at every age. A 21-year-old's average went from \$280 in 2014 to \$303 in 2015 and \$324 in 2016, while a 64-year-old's from \$825 to \$901 to \$946, resulting in a roughly 15% higher premium over two years at both ends.
-
-[Same plans only]{.underline}
 
 ![](output/premium_dollars_same_plans.png)
 
@@ -67,3 +59,7 @@ Premiums change little with age until the 30s, then rise steeply, and by age 64 
 **Limitations**
 
 Every plan counts equally since there are no enrollment numbers, so a plan nobody bought counts as much as the most popular one. Premiums are regulated, so the age pattern reflects the rules as well as the underlying risk. My analysis covers single-year ages from 21 to 64, one tobacco category, and standard plans (no dental or catastrophic), and our public file does not include every state. Matching plans across years relies on plan IDs staying the same, which does not account for jumps in plans or swapping carriers. The premiums are before subsidies, and 2014 to 2016 were the first years of the marketplace, so the results may not describe today.
+
+**What's next**
+
+Weight plans by how many people bought them, so popular plans count more than plans nobody chose. Adding recent years may provide more accurate data; 2014-2016 patterns may not hold. We could also compare states and find which had the steepest increases and check whether carriers entering or leaving explain the jumps.
